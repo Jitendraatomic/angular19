@@ -1,0 +1,8 @@
+<div class="user-management">
+    <h2>User Management</h2>
+    <ul>
+      <li *ngFor="let user of users$ | async">
+        {{ user.name }} - {{ user.role }}
+      </li>
+    </ul>
+  </div>

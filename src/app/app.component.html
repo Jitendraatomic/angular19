@@ -1,0 +1,33 @@
+<!-- app.component.html -->
+
+<div class="app-container">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <!-- Login and Sign Up links should only be visible when the user is not authenticated -->
+    <a *ngIf="!isAuthenticated" routerLink="/auth/login" routerLinkActive="active">Login</a>
+    <a *ngIf="!isAuthenticated" routerLink="/auth/signup" routerLinkActive="active">Sign Up</a>
+
+    <!-- These links are visible only when the user is authenticated -->
+    <button *ngIf="isAuthenticated" mat-raised-button color="primary" (click)="navigateTo('users')">
+      User Management
+    </button>
+    
+    <button *ngIf="isAuthenticated" mat-raised-button color="primary" (click)="navigateTo('documents')">
+      Documents
+    </button>
+    
+    <button *ngIf="isAuthenticated" mat-raised-button color="primary" (click)="navigateTo('ingestion')">
+      Ingestion
+    </button>
+    
+    <button *ngIf="isAuthenticated" mat-raised-button color="primary" (click)="navigateTo('qna')">
+      Q&A
+    </button>
+    <button  *ngIf="isAuthenticated" mat-button (click)="onLogout()">Logout</button>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
